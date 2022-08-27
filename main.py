@@ -31,7 +31,7 @@ def rcmd(m):
         i = data.loc[data['Title']==m].index[0]
         lst = list(enumerate(similarity[i]))
         lst = sorted(lst, key = lambda x:x[1] ,reverse=True)
-        lst = lst[1:61] # excluding first item since it is the requested movie itself
+        lst = lst[1:11] # excluding first item since it is the requested movie itself
         l = []
         for i in range(len(lst)):
             a = lst[i][0]
@@ -57,7 +57,7 @@ def index():
 def recommend_ui():
     return render_template('recommend.html')
 
-@app.route('/recommend_movies',methods = ['post'])
+@app.route('/recommend_movies',methods = ['POST'])
 def recommend():
     movie = request.form.get('user_input')
     c = rcmd(movie)
