@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import pickle
 movie_60 = pd.read_csv('correct_60.csv')
-df = pd.read_csv('final_data1.csv')
+df = pd.read_csv('moviss_dup.csv')
 
 def create_similarity():
     data = pd.read_csv('final_data1.csv')
@@ -31,7 +31,7 @@ def rcmd(m):
         i = data.loc[data['Title']==m].index[0]
         lst = list(enumerate(similarity[i]))
         lst = sorted(lst, key = lambda x:x[1] ,reverse=True)
-        lst = lst[1:11] # excluding first item since it is the requested movie itself
+        lst = lst[0:11] # excluding first item since it is the requested movie itself
         l = []
         for i in range(len(lst)):
             a = lst[i][0]
